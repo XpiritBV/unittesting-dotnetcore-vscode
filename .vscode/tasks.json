@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/TicTacToe/TicTacToe.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "command": "dotnet",
+            "type": "shell",
+            "group": "test",
+            "args": [
+                "test",
+                "${workspaceFolder}/TicTacToe.Tests/TicTacToe.Tests.csproj"
+            ],
+            "presentation": {
+                "reveal": "silent",
+            },
+            "problemMatcher": "$msCompile"
+          }
+    ]
+}

@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace ConsoleApp
+namespace TicTacToe
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("TODO: finish the game so it can be played!");
         }
     }
 }
