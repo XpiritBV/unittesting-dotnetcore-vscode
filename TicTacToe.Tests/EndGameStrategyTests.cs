@@ -9,98 +9,98 @@ namespace TicTacToe.Tests
     public class DetectEndGameStrategyTest
     {
         [Fact]
-        public void GivenEmptyGrid_WhenVerifyIsCalled_ThenGameCompleteShouldBeFalse()
+        public void GivenEmptyBoard_WhenVerifyIsCalled_ThenGameCompleteShouldBeFalse()
         {
             // Arrange
             var endGameStrategy = CreateEndGameStrategy();
-            var grid = GridFactory.CreateEmptyGrid();
+            var board = BoardFactory.CreateEmptyBoard();
 
             // Act
-            var result = endGameStrategy.Verify(grid);
+            var result = endGameStrategy.Verify(board);
 
             // Assert
             result.isGameComplete.Should().BeFalse();
         }
 
         [Fact]
-        public void GivenGridWithEqualOutCome_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
+        public void GivenBoardWithEqualOutCome_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
             var endGameStrategy = CreateEndGameStrategy();
-            var grid = GridFactory.CreateGridWithNoWin();
+            var board = BoardFactory.CreateBoardWithNoWin();
 
             // Act
-            var result = endGameStrategy.Verify(grid);
+            var result = endGameStrategy.Verify(board);
 
             // Assert
             result.isGameComplete.Should().BeTrue();
         }
 
         [Fact]
-        public void GivenGridWithEqualOutCome_WhenVerifyIsCalled_ThenPlayerShouldBe0()
+        public void GivenBoardWithEqualOutCome_WhenVerifyIsCalled_ThenPlayerShouldBe0()
         {
             // Arrange
             var endGameStrategy = CreateEndGameStrategy();
-            var grid = GridFactory.CreateGridWithNoWin();
+            var board = BoardFactory.CreateBoardWithNoWin();
 
             // Act
-            var result = endGameStrategy.Verify(grid);
+            var result = endGameStrategy.Verify(board);
 
             // Assert
             result.winner.Should().Be(0);
         }
 
         [Fact]
-        public void GivenGridWithWinOnFirstRow_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
+        public void GivenBoardWithWinOnFirstRow_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
             var endGameStrategy = CreateEndGameStrategy();
-            var grid = GridFactory.CreateGridWithWinOnFirstRow();
+            var board = BoardFactory.CreateBoardWithWinOnFirstRow();
 
             // Act
-            var result = endGameStrategy.Verify(grid);
+            var result = endGameStrategy.Verify(board);
 
             // Assert
             result.isGameComplete.Should().BeTrue();
         }
 
         [Fact]
-        public void GivenGridWithWinOnFirstColumn_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
+        public void GivenBoardWithWinOnFirstColumn_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
             var endGameStrategy = CreateEndGameStrategy();
-            var grid = GridFactory.CreateGridWithWinOnFirstColumn();
+            var board = BoardFactory.CreateBoardWithWinOnFirstColumn();
 
             // Act
-            var result = endGameStrategy.Verify(grid);
+            var result = endGameStrategy.Verify(board);
 
             // Assert
             result.isGameComplete.Should().BeTrue();
         }
 
         [Fact]
-        public void GivenGridWithWinOnDiagonalBottomLeftTopRight_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
+        public void GivenBoardWithWinOnDiagonalBottomLeftTopRight_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
             var endGameStrategy = CreateEndGameStrategy();
-            var grid = GridFactory.CreateGridWithWinOnDiagonalBottomLeftTopRight();
+            var board = BoardFactory.CreateBoardWithWinOnDiagonalBottomLeftTopRight();
 
             // Act
-            var result = endGameStrategy.Verify(grid);
+            var result = endGameStrategy.Verify(board);
 
             // Assert
             result.isGameComplete.Should().BeTrue();
         }
 
         [Fact]
-        public void GivenGridWithWinOnDiagonalTopLeftBottomRight_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
+        public void GivenBoardWithWinOnDiagonalTopLeftBottomRight_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
             var endGameStrategy = CreateEndGameStrategy();
-            var grid = GridFactory.CreateGridWithWinOnDiagonalBottomLeftTopRight();
+            var board = BoardFactory.CreateBoardWithWinOnDiagonalBottomLeftTopRight();
 
             // Act
-            var result = endGameStrategy.Verify(grid);
+            var result = endGameStrategy.Verify(board);
 
             // Assert
             result.isGameComplete.Should().BeTrue();

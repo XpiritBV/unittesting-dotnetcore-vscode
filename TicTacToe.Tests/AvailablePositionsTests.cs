@@ -10,38 +10,38 @@ namespace TicTacToe.Tests
     public class AvailablePositionsTests
     {
         [Fact]
-        public void GivenEmptyGrid_WhenNoMovedHaveBeenMade_ThenAvailablePositionsShouldBeEqualToTotalPositions()
+        public void GivenEmptyBoard_WhenNoMovedHaveBeenMade_ThenAvailablePositionsShouldBeEqualToTotalPositions()
         {
             // Arrange
-            var gameState = CreateGameState();
-            var total = gameState.TotalPositionsCount;
+            var engine = CreateGameEngine();
+            var total = engine.TotalPositionsCount;
 
             // Act
-            var result = gameState.AvailablePositions;
+            var result = engine.AvailablePositions;
 
             // Assert
             result.Should().HaveCount(total);
         }
         
         [Fact]
-        public void GivenEmptyGrid_WhenOneMoveHasBeenMade_ThenAvailablePositionsShouldbeOneLessThanTotalPositions()
+        public void GivenEmptyBoard_WhenOneMoveHasBeenMade_ThenAvailablePositionsShouldbeOneLessThanTotalPositions()
         {
             // Arrange
-            var gameState = CreateGameState();
-            var totalMinusOne = gameState.TotalPositionsCount - 1;
+            var engine = CreateGameEngine();
+            var totalMinusOne = engine.TotalPositionsCount - 1;
 
             // Act
-            gameState.MakeMove(1, 0, 0);
+            engine.MakeMove(1, 0, 0);
 
             // Assert
-            gameState.AvailablePositions.Should().HaveCount(totalMinusOne);
+            engine.AvailablePositions.Should().HaveCount(totalMinusOne);
         }
 
-        private static GameState CreateGameState()
+        private static GameEngine CreateGameEngine()
         {
             var mockedEndGameStrategy = new Mock<IEndGameStrategy>();
 
-            return new GameState(mockedEndGameStrategy.Object);
+            return new GameEngine(mockedEndGameStrategy.Object);
         }
     }
 }

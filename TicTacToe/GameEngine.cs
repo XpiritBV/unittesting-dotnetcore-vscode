@@ -6,14 +6,14 @@ using System.Linq;
 
 namespace TicTacToe
 {
-    public class GameState
+    public class GameEngine
     {
-        private int[,] grid;
+        private int[,] board;
         private readonly IEndGameStrategy endGameStrategy;
 
-        public GameState(IEndGameStrategy endGameStrategy)
+        public GameEngine(IEndGameStrategy endGameStrategy)
         {
-            grid = new int[GameConstants.GridSize, GameConstants.GridSize];
+            board = new int[GameConstants.Board.Size, GameConstants.Board.Size];
             this.endGameStrategy = endGameStrategy;
         }
 
@@ -22,10 +22,10 @@ namespace TicTacToe
             var move = (player: player, x: xPosition, y: yPosition);
             (bool isGameComplete, string message) result;
 
-            if (grid[move.x, move.y] == GameConstants.EmptyValue)
+            if (board[move.x, move.y] == GameConstants.Values.Empty)
             {
-                grid[move.x, move.y] = move.player;
-                var endGameResult = endGameStrategy.Verify(grid);
+                board[move.x, move.y] = move.player;
+                var endGameResult = endGameStrategy.Verify(board);
                 result = (endGameResult.isGameComplete, "$(endGameResult.winner)");
             }
             else
@@ -38,15 +38,15 @@ namespace TicTacToe
 
         public IEnumerable<(int x, int y)> AvailablePositions => GetAvailablePositions();
 
-        public int TotalPositionsCount => GameConstants.GridSize * GameConstants.GridSize;  
+        public int TotalPositionsCount => GameConstants.Board.Size * GameConstants.Board.Size;  
 
         private IEnumerable<(int, int)> GetAvailablePositions()
         {
-            for (int x = 0; x < GameConstants.GridSize; x++)
+            for (int x = GameConstants.Board.Min; x < GameConstants.Board.Size; x++)
             {
-                for (int y = 0; y < GameConstants.GridSize; y++)
+                for (int y = GameConstants.Board.Min; y < GameConstants.Board.Size; y++)
                 {
-                    if (grid[x, y] == GameConstants.EmptyValue)
+                    if (board[x, y] == GameConstants.Values.Empty)
                     {
                         yield return (x, y);
                     }
