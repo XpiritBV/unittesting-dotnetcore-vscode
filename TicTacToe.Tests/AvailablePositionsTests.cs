@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Moq;
+using NSubstitute;
 using System;
 using System.Linq;
 using TicTacToe;
@@ -39,9 +39,9 @@ namespace TicTacToe.Tests
 
         private static GameEngine CreateGameEngine()
         {
-            var mockedEndGameStrategy = new Mock<IEndGameStrategy>();
+            var fakeEndGameStrategy = Substitute.For<IEndGameStrategy>();
 
-            return new GameEngine(mockedEndGameStrategy.Object);
+            return new GameEngine(fakeEndGameStrategy);
         }
     }
 }
