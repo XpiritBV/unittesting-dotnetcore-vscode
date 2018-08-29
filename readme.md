@@ -6,7 +6,7 @@ This repo contains a .NET Core project to help illustrate how unit testing can b
 
 The .NET Core project is an (incomplete) implementation of a TicTacToe game which can be played by two players. 
 
-The state of the game is captured in the [`GameState.cs`](TicTacToe\GameState.cs) class. The verification of completion of the game (and the winner) is implemented in the [`EndGameStrategy.cs`](TicTacToe\EndGameStrategy.cs) class.
+The engine and state of the game is captured in the [`GameEngine.cs`](TicTacToe/GameEngine.cs) class. The verification of completion of the game (and the winner) is implemented in the [`EndGameStrategy.cs`](TicTacToe/EndGameStrategy.cs) class.
 
 ### Positions on the board
 
@@ -59,6 +59,6 @@ _Equal outcome:_
 
 ## Unit test project
 
-The `EndGameStrategy.cs` class contains plenty of logic to be unit tested. These tests can be found in [`EndGameStrategyTests.cs`](TicTacToe.Tests\EndGameStrategyTests.cs).
+The `EndGameStrategy.cs` class contains plenty of logic to be unit tested. These tests can be found in [`EndGameStrategyTests.cs`](TicTacToe.Tests/EndGameStrategyTests.cs).
 
-The [`AvailablePositionsTests.cs`](TicTacToe.Tests\AvailablePositionsTests.cs) class contains some examples of unit tests with a mocked `IEndGameStrategy`.
+The [`AvailablePositionsTests.cs`](TicTacToe.Tests/AvailablePositionsTests.cs) class contains some examples of unit tests with a mocked `IEndGameStrategy`.
