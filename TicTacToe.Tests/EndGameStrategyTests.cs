@@ -6,9 +6,10 @@ using Xunit;
 
 namespace TicTacToe.Tests
 {
-    public class DetectEndGameStrategyTest
+    public class DetectEndGameStrategyTests
     {
         [Fact]
+        [Trait("Category","Strategy")]
         public void GivenEmptyBoard_WhenVerifyIsCalled_ThenGameCompleteShouldBeFalse()
         {
             // Arrange
@@ -23,6 +24,7 @@ namespace TicTacToe.Tests
         }
 
         [Fact]
+        [Trait("Category","Strategy")]
         public void GivenBoardWithEqualOutCome_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
@@ -37,6 +39,7 @@ namespace TicTacToe.Tests
         }
 
         [Fact]
+         [Trait("Category","Strategy")]
         public void GivenBoardWithEqualOutCome_WhenVerifyIsCalled_ThenPlayerShouldBe0()
         {
             // Arrange
@@ -51,6 +54,7 @@ namespace TicTacToe.Tests
         }
 
         [Fact]
+        [Trait("Category","Strategy")]
         public void GivenBoardWithWinOnFirstRow_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
@@ -65,6 +69,7 @@ namespace TicTacToe.Tests
         }
 
         [Fact]
+        [Trait("Category","Strategy")]
         public void GivenBoardWithWinOnFirstColumn_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
@@ -79,6 +84,7 @@ namespace TicTacToe.Tests
         }
 
         [Fact]
+        [Trait("Category","Strategy")]
         public void GivenBoardWithWinOnDiagonalBottomLeftTopRight_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
@@ -93,6 +99,7 @@ namespace TicTacToe.Tests
         }
 
         [Fact]
+        [Trait("Category","Strategy")]
         public void GivenBoardWithWinOnDiagonalTopLeftBottomRight_WhenVerifyIsCalled_ThenGameCompleteShouldBeTrue()
         {
             // Arrange
