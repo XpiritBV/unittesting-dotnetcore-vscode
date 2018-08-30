@@ -3,11 +3,16 @@
     "tasks": [
         {
             "label": "build",
+            "group": {
+             "isDefault": true,
+             "kind": "build"   
+            },
             "command": "dotnet",
-            "type": "process",
+            "type": "shell",
             "args": [
                 "build",
-                "${workspaceFolder}/TicTacToe/TicTacToe.csproj"
+                "${workspaceFolder}/TicTacToe.Tests/TicTacToe.Tests.csproj",
+                "/property:GenerateFullPaths=true"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -15,10 +20,14 @@
             "label": "test",
             "command": "dotnet",
             "type": "shell",
-            "group": "test",
+            "group": {
+                "isDefault": true,
+                "kind": "test"   
+            },
             "args": [
                 "test",
-                "${workspaceFolder}/TicTacToe.Tests/TicTacToe.Tests.csproj"
+                "${workspaceFolder}/TicTacToe.Tests/TicTacToe.Tests.csproj",
+                "/property:GenerateFullPaths=true"
             ],
             "presentation": {
                 "reveal": "always",
