@@ -17,7 +17,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test",
+            "label": "test2",
             "command": "dotnet",
             "type": "shell",
             "group": {
@@ -27,7 +27,10 @@
             "args": [
                 "test",
                 "${workspaceFolder}/TicTacToe.Tests/TicTacToe.Tests.csproj",
-                "/property:GenerateFullPaths=true"
+                "/property:GenerateFullPaths=true",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=lcov",
+                "/p:CoverletOutput=./lcov.info"
             ],
             "presentation": {
                 "reveal": "always",
